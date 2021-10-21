@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/validation-using-react/static/css/main.54f5b314.chunk.css",
+    "main.js": "/validation-using-react/static/js/main.df6f0754.chunk.js",
+    "main.js.map": "/validation-using-react/static/js/main.df6f0754.chunk.js.map",
+    "runtime-main.js": "/validation-using-react/static/js/runtime-main.4ca46312.js",
+    "runtime-main.js.map": "/validation-using-react/static/js/runtime-main.4ca46312.js.map",
+    "static/js/2.b9808803.chunk.js": "/validation-using-react/static/js/2.b9808803.chunk.js",
+    "static/js/2.b9808803.chunk.js.map": "/validation-using-react/static/js/2.b9808803.chunk.js.map",
+    "index.html": "/validation-using-react/index.html",
+    "static/css/main.54f5b314.chunk.css.map": "/validation-using-react/static/css/main.54f5b314.chunk.css.map",
+    "static/js/2.b9808803.chunk.js.LICENSE.txt": "/validation-using-react/static/js/2.b9808803.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4ca46312.js",
+    "static/js/2.b9808803.chunk.js",
+    "static/css/main.54f5b314.chunk.css",
+    "static/js/main.df6f0754.chunk.js"
+  ]
+}
