@@ -5,8 +5,11 @@ import UsersList from "./Users/UsersList";
 function App() {
   const [usersList, setUsersList] = React.useState([]);
 
-  function addUserHandler(userInput) {
-    setUsersList([...usersList, userInput]);
+  function addUserHandler(userName, age) {
+    setUsersList([
+      ...usersList,
+      { userName: userName, age: age, id: Math.random().toString() },
+    ]);
     console.log(usersList);
   }
 

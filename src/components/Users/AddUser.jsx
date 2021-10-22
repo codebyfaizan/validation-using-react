@@ -5,25 +5,21 @@ import styles from "./AddUser.module.css";
 import ErrorModal from "../UI/ErrorModal";
 
 function AddUser(props) {
-  const [userInput, setUserInput] = React.useState({
-    userName: "",
-    age: "",
-  });
+
+  const nameInputRef = React.useRef();
+  const ageInputRef = React.useRef();
 
   const [error, setError] = React.useState();
-
-  function userInputHandler(event) {
-    const { name, value } = event.target;
-    userInput[name] = value;
-    setUserInput({ ...userInput });
-  }
 
   function addUserHandler(event) {
     event.preventDefault();
 
+    const userName = nameInputRef.current.value;
+    const age = ageInputRef.current.value;
+
     if (
-      userInput.userName.trim().length === 0 ||
-      userInput.age.trim().length === 0
+      userName.trim().length === 0 ||
+      age.trim().length === 0
     ) {
       setError({
         title: "Invalid Input",
@@ -32,7 +28,7 @@ function AddUser(props) {
       return;
     }
 
-    if (userInput.age < 1 || userInput.age > 100) {
+    if (+age < 1 || +age > 100) {
       setError({
         title: "Invalid Age",
         message: "Please Enter age between 1 and 100",
@@ -40,12 +36,10 @@ function AddUser(props) {
       return;
     }
 
-    props.onAddUser(userInput);
+    props.onAddUser(userName, age);
 
-    setUserInput({
-      userName: "",
-      age: "",
-    });
+    nameInputRef.current.value= "";
+    ageInputRef.current.value= "";
   }
 
   function errorHandler() {
@@ -53,7 +47,7 @@ function AddUser(props) {
   }
 
   return (
-    <div>
+    <>
       {error && (
         <ErrorModal
           title={error.title}
@@ -67,20 +61,18 @@ function AddUser(props) {
           <input
             name="userName"
             type="text"
-            onChange={userInputHandler}
-            value={userInput.userName}
+            ref={nameInputRef}
           />
           <label htmlFor="age">Age (in Years)</label>
           <input
             name="age"
             type="number"
-            onChange={userInputHandler}
-            value={userInput.age}
+            ref={ageInputRef}
           />
           <Button type="submit">Add User</Button>
         </form>
       </Card>
-    </div>
+    </>
   );
 }
 
